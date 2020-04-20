@@ -9,3 +9,4 @@ A collection of my own solutions to freeCodeCamp's JavaScript algorithm challeng
 3. [Seek and Destroy]()
 4. [Wherefore art thou]()
 5. [Spinal Tap Case](spinal-case.js)
+6. [Pig Latin](pig-latin.js)
