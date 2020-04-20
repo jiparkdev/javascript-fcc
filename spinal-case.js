@@ -1,4 +1,19 @@
+// =================
+// FreeCodeCamp Link
+// =================
+
+// https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/intermediate-algorithm-scripting/spinal-tap-case
+
+// =========
+// OBJECTIVE
+// =========
+
 // Convert a string to spinal case. Spinal case is all-lowercase-words-joined-by-dashes.
+
+// ==========
+// TEST CASES
+// ==========
+
 // spinalCase("This Is Spinal Tap") should return "this-is-spinal-tap".
 // spinalCase("thisIsSpinalTap") should return "this-is-spinal-tap".
 // spinalCase("The_Andy_Griffith_Show") should return "the-andy-griffith-show".
