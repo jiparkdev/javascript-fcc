@@ -13,3 +13,4 @@ A collection of my own solutions to freeCodeCamp's JavaScript algorithm challeng
 7. [Search and Replace](search-and-replace.js)
 8. [DNA Pairing](dna-pairing.js)
 9. [Missing Letters](missing-letters.js)
+10. [Sorted Union](sorted-union.js)
