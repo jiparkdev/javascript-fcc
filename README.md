@@ -11,3 +11,4 @@ A collection of my own solutions to freeCodeCamp's JavaScript algorithm challeng
 5. [Spinal Tap Case](spinal-case.js)
 6. [Pig Latin](pig-latin.js)
 7. [Search and Replace](search-and-replace.js)
+8. [DNA Pairing](dna-pairing.js)
