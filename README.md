@@ -16,3 +16,4 @@ A collection of my own solutions to freeCodeCamp's JavaScript algorithm challeng
 10. [Sorted Union](sorted-union.js)
 11. [Convert HTML Entities](convert-html-entities.js)
 12. [Sum All Odd Fibonacci Numbers](sum-odd-fibonacci.js)
+13. [Summ All Primes](sum-all-primes.js)
