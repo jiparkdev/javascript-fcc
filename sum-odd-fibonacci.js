@@ -25,8 +25,45 @@
 // sumFibs(75024) should return 60696.
 // sumFibs(75025) should return 135721.
 
-function sumFibs(num) {
-  return num;
+console.clear();
+
+function fib(arr, limit) {
+  if (arr[arr.length - 2] + arr[arr.length - 1] > limit) {
+    return arr;
+  }
+  arr.push(arr[arr.length - 2] + arr[arr.length - 1]);
+  return fib(arr, limit);
 }
 
-sumFibs(4);
+function sumOdds(arr) {
+  let sum = 0;
+  for (let num of arr) {
+    if (num % 2 === 1) {
+      sum += num;
+    }
+  }
+  return sum;
+}
+
+function sumFibs(num) {
+  const fibbi = fib([1, 1], num);
+  const sumNum = sumOdds(fibbi);
+  return sumNum;
+}
+
+const results = [
+  sumFibs(1),
+  sumFibs(1000),
+  sumFibs(4000000),
+  sumFibs(4),
+  sumFibs(75024),
+  sumFibs(75025),
+];
+
+console.log(results);
+
+/* Output
+
+  [ 2, 1785, 4613732, 5, 60696, 135721 ]
+
+*/
