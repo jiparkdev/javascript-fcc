@@ -30,16 +30,68 @@
 // truthCheck([{"single": "double"}, {"single": undefined}], "single") should return false
 // truthCheck([{"single": "double"}, {"single": NaN}], "single") should return false
 
+console.clear();
+
 function truthCheck(collection, pre) {
-  return pre;
+  for (let i = 0; i < collection.length; i++) {
+    if (!(pre in collection[i])) {
+      return false;
+    }
+    if (!collection[i][pre]) {
+      return false;
+    }
+  }
+  return true;
 }
 
-truthCheck(
-  [
-    { user: "Tinky-Winky", sex: "male" },
-    { user: "Dipsy", sex: "male" },
-    { user: "Laa-Laa", sex: "female" },
-    { user: "Po", sex: "female" },
-  ],
-  "sex"
-);
+let res = [
+  truthCheck(
+    [
+      { user: "Tinky-Winky", sex: "male" },
+      { user: "Dipsy", sex: "male" },
+      { user: "Laa-Laa", sex: "female" },
+      { user: "Po", sex: "female" },
+    ],
+    "sex"
+  ),
+  truthCheck(
+    [
+      { user: "Tinky-Winky", sex: "male" },
+      { user: "Dipsy" },
+      { user: "Laa-Laa", sex: "female" },
+      { user: "Po", sex: "female" },
+    ],
+    "sex"
+  ),
+  truthCheck(
+    [
+      { user: "Tinky-Winky", sex: "male", age: 0 },
+      { user: "Dipsy", sex: "male", age: 3 },
+      { user: "Laa-Laa", sex: "female", age: 5 },
+      { user: "Po", sex: "female", age: 4 },
+    ],
+    "age"
+  ),
+  truthCheck(
+    [
+      { name: "Pete", onBoat: true },
+      { name: "Repeat", onBoat: true },
+      { name: "FastForward", onBoat: null },
+    ],
+    "onBoat"
+  ),
+  truthCheck(
+    [
+      { name: "Pete", onBoat: true },
+      { name: "Repeat", onBoat: true, alias: "Repete" },
+      { name: "FastForward", onBoat: true },
+    ],
+    "onBoat"
+  ),
+  truthCheck([{ single: "yes" }], "single"),
+  truthCheck([{ single: "" }, { single: "double" }], "single"),
+  truthCheck([{ single: "double" }, { single: undefined }], "single"),
+  truthCheck([{ single: "double" }, { single: NaN }], "single"),
+];
+
+console.log(res);
