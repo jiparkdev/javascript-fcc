@@ -7,7 +7,7 @@ A collection of my own solutions to freeCodeCamp's JavaScript algorithm challeng
 1. [Sum All Numbers in a Range]()
 2. [Diff Two ArraysPassed]()
 3. [Seek and Destroy]()
-4. [Wherefore art thou](where-art-thou.js)
+4. [Wherefore art thou](wherefore-art-thou.js)
 5. [Spinal Tap Case](spinal-case.js)
 6. [Pig Latin](pig-latin.js)
 7. [Search and Replace](search-and-replace.js)
