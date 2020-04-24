@@ -4,7 +4,7 @@ A collection of my own solutions to freeCodeCamp's JavaScript algorithm challeng
 
 ## Intermediate Algorithm Scripting
 
-1. [Sum All Numbers in a Range]()
+1. [Sum All Numbers in a Range](sum-all-nums-in-range.js)
 2. [Diff Two Arrays](diff-two-arrays.js)
 3. [Seek and Destroy](seek-and-destroy.js)
 4. [Wherefore art thou](wherefore-art-thou.js)
