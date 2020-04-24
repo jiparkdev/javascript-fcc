@@ -24,3 +24,4 @@ A collection of my own solutions to freeCodeCamp's JavaScript algorithm challeng
 18. [Everything Be True](everything-be-true.js)
 19. [Arguments Optional](arguments-optional.js)
 20. [Make a Person](make-a-person.js)
+21. [Map the Debris](map-the-debris.js)
