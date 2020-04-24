@@ -34,8 +34,22 @@
 // [1, "calf", 3, "piglet"], [7, "filly"] should return an array with six items.
 
 function diffArray(arr1, arr2) {
-  var newArr = [];
-  return newArr;
+  let arrx = arr1.filter((val1) => {
+    for (let val2 of arr2) {
+      if (val1 === val2) {
+        return false;
+      }
+    }
+    return true;
+  });
+  let arry = arr2.filter((val1) => {
+    for (let val2 of arr1) {
+      if (val1 === val2) {
+        return false;
+      }
+    }
+    return true;
+  });
+  let arrz = arrx.concat(arry);
+  return arrz;
 }
-
-diffArray([1, 2, 3, 5], [1, 2, 3, 4, 5]);
