@@ -23,3 +23,4 @@ A collection of my own solutions to freeCodeCamp's JavaScript algorithm challeng
 17. [Binary Agents](binary-agents.js)
 18. [Everything Be True](everything-be-true.js)
 19. [Arguments Optional](arguments-optional.js)
+20. [Make a Person](make-a-person.js)
