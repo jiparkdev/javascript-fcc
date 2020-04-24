@@ -18,3 +18,4 @@ A collection of my own solutions to freeCodeCamp's JavaScript algorithm challeng
 12. [Sum All Odd Fibonacci Numbers](sum-odd-fibonacci.js)
 13. [Sum All Primes](sum-all-primes.js)
 14. [Smallest Common Multiple](smallest-common-multiple.js)
+15. [Drop It](drop-it.js)
