@@ -21,3 +21,4 @@ A collection of my own solutions to freeCodeCamp's JavaScript algorithm challeng
 15. [Drop It](drop-it.js)
 16. [Steamroller](steamroller.js)
 17. [Binary Agents](binary-agents.js)
+18. [Everything Be True](everything-be-true.js)
