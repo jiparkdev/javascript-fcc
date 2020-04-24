@@ -19,3 +19,4 @@ A collection of my own solutions to freeCodeCamp's JavaScript algorithm challeng
 13. [Sum All Primes](sum-all-primes.js)
 14. [Smallest Common Multiple](smallest-common-multiple.js)
 15. [Drop It](drop-it.js)
+16. [Steamroller](steamroller.js)
