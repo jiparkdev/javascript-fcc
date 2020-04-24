@@ -25,7 +25,17 @@
 // destroyer(["possum", "trollo", 12, "safari", "hotdog", 92, 65, "grandma", "bugati", "trojan", "yacht"], "yacht", "possum", "trollo", "safari", "hotdog", "grandma", "bugati", "trojan") should return [12,92,65].
 
 function destroyer(arr) {
-  return arr;
+  let resArr = [];
+  for (let i = 0; i < arr.length; i++) {
+    let isIn = false;
+    for (let j = 1; j < arguments.length; j++) {
+      if (arguments[j] === arr[i]) {
+        isIn = true;
+      }
+    }
+    if (!isIn) {
+      resArr.push(arr[i]);
+    }
+  }
+  return resArr;
 }
-
-destroyer([1, 2, 3, 1, 2, 3], 2, 3);
