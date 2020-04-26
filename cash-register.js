@@ -91,6 +91,7 @@ function checkCashRegister(price, cash, cid) {
   for (let i = 0; i < ccid.length; i++) {
     cidObj[ccid[i][0]] = ccid[i][1];
   }
+  let expectedChange = cash - price;
   let change = cash - price;
   const totalCID = ccid.reduce((acc, val) => {
     return acc + val[1];
@@ -99,7 +100,7 @@ function checkCashRegister(price, cash, cid) {
     return { status: "INSUFFICIENT_FUNDS", change: [] };
   }
   if (totalCID === change) {
-    return { status: "CLOSED", change: ccid };
+    return { status: "CLOSED", change: cid };
   }
   let pulledArr = [];
   for (let cur in curs) {
@@ -110,7 +111,12 @@ function checkCashRegister(price, cash, cid) {
       pulledArr.push([cur, chgPulledAmount[1][cur]]);
     }
   }
-  console.log(pulledArr);
+  const changeBack = pulledArr.reduce((acc, val) => {
+    return acc + val[1];
+  }, 0);
+  if (changeBack < expectedChange) {
+    return { status: "INSUFFICIENT_FUNDS", change: [] };
+  }
   return { status: "OPEN", change: pulledArr };
 }
 
@@ -140,14 +146,38 @@ function dec(change, cidObj, cur) {
   return [change, pulledAmount];
 }
 
-checkCashRegister(3.26, 100, [
-  ["PENNY", 1.01],
-  ["NICKEL", 2.05],
-  ["DIME", 3.1],
-  ["QUARTER", 4.25],
-  ["ONE", 90],
-  ["FIVE", 55],
-  ["TEN", 20],
-  ["TWENTY", 60],
-  ["ONE HUNDRED", 100],
+// checkCashRegister(3.26, 100, [
+//   ["PENNY", 1.01],
+//   ["NICKEL", 2.05],
+//   ["DIME", 3.1],
+//   ["QUARTER", 4.25],
+//   ["ONE", 90],
+//   ["FIVE", 55],
+//   ["TEN", 20],
+//   ["TWENTY", 60],
+//   ["ONE HUNDRED", 100],
+// ]);
+
+// checkCashRegister(19.5, 20, [
+//   ["PENNY", 0.01],
+//   ["NICKEL", 0],
+//   ["DIME", 0],
+//   ["QUARTER", 0],
+//   ["ONE", 1],
+//   ["FIVE", 0],
+//   ["TEN", 0],
+//   ["TWENTY", 0],
+//   ["ONE HUNDRED", 0],
+// ]);
+
+checkCashRegister(19.5, 20, [
+  ["PENNY", 0.5],
+  ["NICKEL", 0],
+  ["DIME", 0],
+  ["QUARTER", 0],
+  ["ONE", 0],
+  ["FIVE", 0],
+  ["TEN", 0],
+  ["TWENTY", 0],
+  ["ONE HUNDRED", 0],
 ]);
