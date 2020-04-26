@@ -97,15 +97,6 @@ function checkCashRegister(price, cash, cid) {
   if (totalCID === change) {
     return { status: "CLOSED", change: ccid };
   }
-  for (let i = 0; i < ccid.length; i++) {
-    let currencyName = ccid[i][0];
-    let curMoneyInDrawer = ccid[i][1];
-    let numOfCurMoneyInChange = curQty(currencyName, change);
-    let numOfCurMoneyInDrawer = curQty(currencyName, curMoneyInDrawer);
-    if (numOfCurMoneyInChange > 0 && numOfCurMoneyInDrawer > 0) {
-      console.log(currencyName, numOfCurMoneyInChange, numOfCurMoneyInDrawer);
-    }
-  }
 }
 
 checkCashRegister(3.26, 100, [
