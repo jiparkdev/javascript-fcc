@@ -42,3 +42,19 @@
 // convertToRoman(1023) should return "MXXIII"
 // convertToRoman(2014) should return "MMXIV"
 // convertToRoman(3999) should return "MMMCMXCIX"
+
+let rnum = {
+  1000: "M",
+  500: "D",
+  100: "C",
+  50: "L",
+  10: "X",
+  5: "V",
+  1: "I",
+};
+
+function convertToRoman(num) {
+  return num;
+}
+
+convertToRoman(36);
