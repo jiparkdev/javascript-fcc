@@ -37,8 +37,33 @@
 // palindrome("0_0 (: /-\ :) 0-0") should return true.
 // palindrome("five|\_/|four") should return false.
 
-function palindrome(str) {
-  return true;
+console.clear();
+
+function cleanUp(str) {
+  let word = str.split("");
+  let ret = [];
+  let regex = /[A-Za-z0-9]/;
+  for (let i = 0; i < word.length; i++) {
+    if (regex.test(word[i])) {
+      ret.push(word[i]);
+    }
+  }
+  return ret.join("").toLowerCase();
 }
 
-palindrome("eye");
+function palindrome(str) {
+  let tempStr = cleanUp(str);
+  console.log(tempStr);
+  let word1 = tempStr.split("");
+  let word2 = tempStr.split("");
+  let word3 = [];
+  for (let i = word2.length - 1; i >= 0; i--) {
+    word3.push(word2[i]);
+  }
+  for (let i = 0; i < word1.length; i++) {
+    if (word1[i] !== word3[i]) {
+      return false;
+    }
+  }
+  return true;
+}
