@@ -55,12 +55,60 @@
 // checkCashRegister(19.5, 20, [["PENNY", 0.01], ["NICKEL", 0], ["DIME", 0], ["QUARTER", 0], ["ONE", 1], ["FIVE", 0], ["TEN", 0], ["TWENTY", 0], ["ONE HUNDRED", 0]]) should return {status: "INSUFFICIENT_FUNDS", change: []}.
 // checkCashRegister(19.5, 20, [["PENNY", 0.5], ["NICKEL", 0], ["DIME", 0], ["QUARTER", 0], ["ONE", 0], ["FIVE", 0], ["TEN", 0], ["TWENTY", 0], ["ONE HUNDRED", 0]]) should return {status: "CLOSED", change: [["PENNY", 0.5], ["NICKEL", 0], ["DIME", 0], ["QUARTER", 0], ["ONE", 0], ["FIVE", 0], ["TEN", 0], ["TWENTY", 0], ["ONE HUNDRED", 0]]}.
 
-function checkCashRegister(price, cash, cid) {
-  var change;
-  return change;
+let curs = {
+  "ONE HUNDRED": 100,
+  TWENTY: 20,
+  TEN: 10,
+  FIVE: 5,
+  ONE: 1,
+  QUARTER: 0.25,
+  DIME: 0.1,
+  NICKEL: 0.05,
+  PENNY: 0.01,
+};
+
+function curQty(cur, val) {
+  let qty = Math.floor(val / curs[cur]);
+  return qty;
 }
 
-checkCashRegister(19.5, 20, [
+// let curs = [
+//   100,
+//   20,
+//   10,
+//   5,
+//   1,
+//   0.25,
+//   0.10,
+//   0.05,
+//   0.01
+// ];
+
+function checkCashRegister(price, cash, cid) {
+  let ccid = cid.slice();
+  ccid.reverse();
+  let change = cash - price;
+  const totalCID = ccid.reduce((acc, val) => {
+    return acc + val[1];
+  }, 0);
+  if (totalCID < change) {
+    return { status: "INSUFFICIENT_FUNDS", change: [] };
+  }
+  if (totalCID === change) {
+    return { status: "CLOSED", change: ccid };
+  }
+  for (let i = 0; i < ccid.length; i++) {
+    let currencyName = ccid[i][0];
+    let curMoneyInDrawer = ccid[i][1];
+    let numOfCurMoneyInChange = curQty(currencyName, change);
+    let numOfCurMoneyInDrawer = curQty(currencyName, curMoneyInDrawer);
+    if (numOfCurMoneyInChange > 0 && numOfCurMoneyInDrawer > 0) {
+      console.log(currencyName, numOfCurMoneyInChange, numOfCurMoneyInDrawer);
+    }
+  }
+}
+
+checkCashRegister(3.26, 100, [
   ["PENNY", 1.01],
   ["NICKEL", 2.05],
   ["DIME", 3.1],
