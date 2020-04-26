@@ -53,7 +53,6 @@ function cleanUp(str) {
 
 function palindrome(str) {
   let tempStr = cleanUp(str);
-  console.log(tempStr);
   let word1 = tempStr.split("");
   let word2 = tempStr.split("");
   let word3 = [];
