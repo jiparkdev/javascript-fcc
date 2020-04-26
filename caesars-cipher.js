@@ -25,8 +25,57 @@
 // rot13("SERR YBIR?") should decode to FREE LOVE?
 // rot13("GUR DHVPX OEBJA SBK WHZCF BIRE GUR YNML QBT.") should decode to THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG.
 
-function rot13(str) {
-  return str;
+const chars = [
+  "A",
+  "B",
+  "C",
+  "D",
+  "E",
+  "F",
+  "G",
+  "H",
+  "I",
+  "J",
+  "K",
+  "L",
+  "M",
+  "N",
+  "O",
+  "P",
+  "Q",
+  "R",
+  "S",
+  "T",
+  "U",
+  "V",
+  "W",
+  "X",
+  "Y",
+  "Z",
+];
+
+function shiftChar(char) {
+  let idx = chars.indexOf(char);
+  if (idx + 13 >= chars.length) {
+    idx = idx + 13 - chars.length;
+  } else {
+    idx = idx + 13;
+  }
+  return chars[idx];
 }
 
-rot13("SERR PBQR PNZC");
+function rot13(str) {
+  let regex = /[A-Z]/;
+  let split = str.split("");
+  for (let i = 0; i < split.length; i++) {
+    if (regex.test(split[i])) {
+      split[i] = shiftChar(split[i]);
+    }
+  }
+  split = split.join("");
+  return split;
+}
+
+let ret = rot13("SERR PBQR PNZC");
+
+console.log(ret);
