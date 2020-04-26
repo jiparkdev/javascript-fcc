@@ -31,3 +31,4 @@ A collection of my own solutions to freeCodeCamp's JavaScript algorithm challeng
 1. [Palindrome Checker](palindrome-checker.js)
 2. [Roman Numerals](roman-numerals.js)
 3. [Caesars Cipher](caesars-cipher.js)
+4. [Telephone Number Validator](tel-num-val.js)
