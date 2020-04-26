@@ -29,3 +29,4 @@ A collection of my own solutions to freeCodeCamp's JavaScript algorithm challeng
 ## JavaScript Algorithms and Data Structures Projects
 
 1. [Palindrome Checker](palindrome-checker.js)
+2. [Roman Numerals](roman-numerals.js)
