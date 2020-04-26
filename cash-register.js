@@ -68,7 +68,7 @@ let curs = {
 };
 
 function curQty(cur, val) {
-  let qty = Math.floor(val / curs[cur]);
+  let qty = parseFloat(Math.floor(val / curs[cur])).toFixed(2);
   return qty;
 }
 
@@ -87,6 +87,10 @@ function curQty(cur, val) {
 function checkCashRegister(price, cash, cid) {
   let ccid = cid.slice();
   ccid.reverse();
+  let cidObj = {};
+  for (let i = 0; i < ccid.length; i++) {
+    cidObj[ccid[i][0]] = ccid[i][1];
+  }
   let change = cash - price;
   const totalCID = ccid.reduce((acc, val) => {
     return acc + val[1];
@@ -97,6 +101,43 @@ function checkCashRegister(price, cash, cid) {
   if (totalCID === change) {
     return { status: "CLOSED", change: ccid };
   }
+  let pulledArr = [];
+  for (let cur in curs) {
+    let chgPulledAmount = dec(change, cidObj, cur);
+    change = parseFloat(chgPulledAmount[0]).toFixed(2);
+    if (chgPulledAmount[1][cur] > 0) {
+      // console.log(change, chgPulledAmount[1]);
+      pulledArr.push([cur, chgPulledAmount[1][cur]]);
+    }
+  }
+  console.log(pulledArr);
+  return { status: "OPEN", change: pulledArr };
+}
+
+function dec(change, cidObj, cur) {
+  let pulledAmount = {};
+  // Amount of cur dollars pulled out from the drawer.
+  pulledAmount[cur] = 0;
+  // How many cur dollar bills can fit into the change?
+  let a = curQty(cur, change);
+  // How many cur dollar bills are there in the drawer?
+  let b = curQty(cur, cidObj[cur]);
+  // Whichever quantity is reached first. Decrement until then.
+  let counter = 0;
+  while (counter < a || counter < b) {
+    if (a === 0 || b === 0) {
+      break;
+    }
+    let chgCurDiff = (change - curs[cur]).toFixed(2);
+    // console.log(change, curs[cur], chgCurDiff);
+    if (cidObj[cur] > 0 && chgCurDiff >= 0) {
+      change -= curs[cur];
+      cidObj[cur] -= curs[cur];
+      pulledAmount[cur] += curs[cur];
+    }
+    counter++;
+  }
+  return [change, pulledAmount];
 }
 
 checkCashRegister(3.26, 100, [
