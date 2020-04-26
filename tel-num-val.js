@@ -54,7 +54,18 @@
 // telephoneCheck("(555)5(55?)-5555") should return false.
 
 function telephoneCheck(str) {
-  return true;
+  if (str.indexOf("(") !== -1) {
+    if (str.indexOf(")") === -1) {
+      return false;
+    }
+  }
+  if (str.indexOf(")") !== -1) {
+    if (str.indexOf("(") === -1) {
+      return false;
+    }
+  }
+  let regex = /^1*\s*\(*[1-9]{3}\)*[\s-]*[1-9]{3}[\s-]*[1-9]{4}$/;
+  return regex.test(str);
 }
 
 telephoneCheck("555-555-5555");
