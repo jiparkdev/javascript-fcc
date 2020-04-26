@@ -25,3 +25,7 @@ A collection of my own solutions to freeCodeCamp's JavaScript algorithm challeng
 19. [Arguments Optional](arguments-optional.js)
 20. [Make a Person](make-a-person.js)
 21. [Map the Debris](map-the-debris.js)
+
+## JavaScript Algorithms and Data Structures Projects
+
+1. [Palindrome Checker](palindrome-checker.js)
