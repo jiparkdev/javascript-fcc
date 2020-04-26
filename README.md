@@ -32,3 +32,4 @@ A collection of my own solutions to freeCodeCamp's JavaScript algorithm challeng
 2. [Roman Numerals](roman-numerals.js)
 3. [Caesars Cipher](caesars-cipher.js)
 4. [Telephone Number Validator](tel-num-val.js)
+5. [Cash Register](cash-register.js)
